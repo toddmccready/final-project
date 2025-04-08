@@ -194,6 +194,7 @@ In this work, we developed a stochastic, agent-based model of transcription base
 
 
 = Code Availability
+The code used in this study is publicly available on GitHub at https://github.com/toddmccready/final-project.
 
 = Appendix
 == Appendix A: Multiple Stochastic Steps Can Have Less Variability
