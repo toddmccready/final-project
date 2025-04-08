@@ -253,7 +253,7 @@ The rate of the forward translocation is then $sigma(Delta_s) k_("for")^((0))$.
 <par>
 == Appendix C: Negative Binomial Parameterization
 
-We parameterize the negative binomial in terms of its mean $mu$ and inverse overdispersion factor $phi.alt$. Let $X ~ "NegBinom"(mu, phi.alt)$, then:
+We parameterize the negative binomial in terms of its mean $mu$ and inverse overdispersion factor $phi.alt$. Let #box()[$X ~ "NegBinom"(mu, phi.alt)$], then:
 
 $
   P_X (x | mu, phi.alt) &= binom(x + phi.alt - 1, x) (frac(mu, mu + phi.alt))^x (frac(phi.alt, mu + phi.alt))^phi.alt \
