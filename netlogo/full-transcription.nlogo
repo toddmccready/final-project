@@ -78,7 +78,7 @@ to setup
     set pcolor red
   ]
 
-  ;open_file
+  open_file
 end
 
 to go
@@ -111,16 +111,16 @@ to go
 
 
   ; Sampling from Stationary Distribution
-;  if 5000 <= time and (time) mod update < dt * 0.9 [
-;    write_out
-;
-;    ; Print percent progress
-;    show precision ((time / (5000 + update * n) ) * 100) 1
-;  ]
-;  if 5000 + update * n <= time [
-;    file-close-all
-;    stop
-;  ]
+  if 5000 <= time and (time) mod update < dt * 0.9 [
+    write_out
+
+    ; Print percent progress
+    show precision ((time / (5000 + update * n) ) * 100) 1
+  ]
+  if 5000 + update * n <= time [
+    file-close-all
+    stop
+  ]
 end
 
 
