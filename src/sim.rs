@@ -151,12 +151,12 @@ impl Default for SimulationSettings {
 
             // TF2E
             tf2e_conc: 1.0,
-            tf2e_kon: 0.07, // fixed
+            tf2e_kon: 0.07,
             tf2e_koff: 0.01,
 
             // TF2H
             tf2h_conc: 1.0,
-            tf2h_kon: 0.01, // fixed
+            tf2h_kon: 0.01,
             tf2h_koff: 0.01,
 
             tf2h_phospho: 1.0, // TF2H Phosphorylation Rate
@@ -619,7 +619,7 @@ impl Simulation {
                 .polymerases
                 .iter()
                 .enumerate()
-                .filter(|(_, pol)| pol.pos > hit && (pol.pos - hit).abs() < 50)
+                .filter(|(_, pol)| pol.pos > hit && (pol.pos - hit).abs() < 50) // Check if nearby
                 .min_by_key(|(_, pol)| pol.pos - hit)
             {
                 // Remove torsional strain
@@ -631,8 +631,8 @@ impl Simulation {
                 .polymerases
                 .iter()
                 .enumerate()
-                .filter(|(_, pol)| pol.pos < hit && (pol.pos - hit).abs() < 50)
-                .min_by_key(|(_, pol)| hit - pol.pos)
+                .filter(|(_, pol)| pol.pos < hit && (pol.pos - hit).abs() < 50) // Check if nearby
+                .min_by_key(|(_, pol)| hit - pol.pos) 
             {
                 // Remove torsional strain
                 self.polymerases[pol_index].supercoil_ds = 0.0;
