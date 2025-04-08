@@ -1,0 +1,9 @@
+[package]
+name = "final-project"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+polars = "0.46.0"
+rand = "0.9.0"
+rayon = "1.10.0"
