@@ -14,9 +14,12 @@ fn main() {
 
     // Uniform distribution for randomization
     let unif = rand::distr::Uniform::new(0.0, 1.0).unwrap();
-
+    
+    // Number of simulations to run
+    let n_sims = 100;
+    
     let mut rng: ThreadRng = rand::rng();
-    for _ in 0..32 {
+    for _ in 0..n_sims {
         let mut s: SimulationSettings = SimulationSettings::default();
 
         // Bounds for the parameter space
