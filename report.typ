@@ -31,7 +31,7 @@
   #text(size: 20pt)[*#title*]
   
   #grid(columns: (1fr, 1fr, 1fr, 1fr)
-  ,  align(center)[Shengtong Sun], align(center)[Raiyan Raya], align(center)[Todd Pocuca], align(center)[Louis Ward]
+  ,  align(center)[Shengtong Sun], align(center)[Raiyan Raza], align(center)[Todd Pocuca], align(center)[Louis Ward]
   )
   #align(center)[BIOPHYS 3G03 \ McMaster University]
   
@@ -97,13 +97,13 @@ $
 === Transcription Elongation
 Once initiated, individual polymerase agents move along a discrete one-dimensional lattice representing the gene. Following from #cite(<saba_elemental_2019>, form: "prose"), elongation is modelled as a branched kinetic process with distinct "on-pathway" states and "offline" paused states, with transitions between these states occurring at intrinsic rates modified by NTP concentration if relevant#link(<elongation>)[(Fig. 3)].
 
-The status of a given RNAP $RR_(x)^((n))$ is encoded by its position $n$ and its state $i$. Transitions between the "on-pathway" states $RR_0^((n)), RR_1^((n+1)), ..., RR_4^((n+1))$ correspond to the sequential steps of elongation: translocation, NTP binding, NTP alignment, catalysis, and PPi release @saba_elemental_2019. With the exception of PPi release#box()[($RR_4^((n+1)) -> RR_0^((n+1))$)], which we model as irreversible, all transitions within the "on-pathway" are reversible.
+The status of a given RNAP $RR_(x)^((n))$ is encoded by its position $n$ and its state $i$. Transitions between the "on-pathway" states $RR_0^((n)), RR_1^((n+1)), ..., RR_4^((n+1))$ correspond to the sequential steps of elongation: translocation, NTP binding, NTP alignment, catalysis, and PPi release @saba_elemental_2019. With the exception of PPi release #box()[($RR_4^((n+1)) -> RR_0^((n+1))$)], which we model as irreversible, all transitions within the "on-pathway" are reversible.
 
 The "offline" states $RR_(-1)^((n)), RR_(-2)^((n)), ..., RR_(-4)^((n))$ represent various conformations of the paused elongation complex @saba_elemental_2019, and transitions between these states are all reversible. While the paused complex can exhibit behaviors such as backtracking, these steps are known to be significantly slower, particularly beyond $RR_(-4)^((n))$. Given that transcriptional pausing primarily impacts elongation by diverting RNAP from the "on-pathway" conformations to these paused states, we have focused our modeling efforts on this primary mechanism of pausing and have not explicitly included the extremely slow backtracking transitions within the "offline" states.
 
 The "on-pathway" and "offline" states are interconnected only at a branching point between $RR_(0)^((n))$ and $RR_(-1)^((n))$. Transitions at this point represent the entry into and exit from transcriptional pausing.
 
-Given RNAP movement is constrained by torsional strain @ma_transcription_2013, we model the effect of this strain #box()[$Delta_s$] by increasing downstream supercoiling($s_(+)$) and decreasing upstream supercoiling($s_(-)$) upon successful translocation. The translocation rate of a polymerase is then scaled by a logistic function dependent on the difference between downstream and upstream supercoiling #box()[$Delta_s = s_(+) - s_(-)$], and reduces the rate drastically at a critical point set to 100#link(<torsion>)[(see Appendix B)]. Topoisomerase activity acts to relieve this torsional strain as it does within cells and is modelled as a random binding event along the gene occuring at a given rate. Once successfully bound, the closest polymerases within a neighbourhood of 50nt have their corresponding number of supercoils set to $0$.
+Given RNAP movement is constrained by torsional strain @ma_transcription_2013, we model the effect of this strain #box()[$Delta_s$] by increasing downstream supercoiling($s_(+)$) and decreasing upstream supercoiling ($s_(-)$) upon successful translocation. The translocation rate of a polymerase is then scaled by a logistic function dependent on the difference between downstream and upstream supercoiling #box()[$Delta_s = s_(+) - s_(-)$], and reduces the rate drastically at a critical point set to 100 #link(<torsion>)[(see Appendix B)]. Topoisomerase activity acts to relieve this torsional strain as it does within cells and is modelled as a random binding event along the gene occuring at a given rate. Once successfully bound, the closest polymerases within a neighbourhood of 50nt have their corresponding number of supercoils set to $0$.
 
 
 <elongation>
@@ -214,7 +214,7 @@ $
   1/lambda = 1/lambda_1 + dots.c + 1/lambda_n
 $
 
-Since all rates are non-negative, then we have $lambda_i > lambda$ for all $i in {1, ..., n}$(otherwise we force other terms to be negative, which is a contradiction).
+Since all rates are non-negative, then we have $lambda_i > lambda$ for all $i in {1, ..., n}$ (otherwise we force other terms to be negative, which is a contradiction).
 
 Therefore, we have that:
 
@@ -237,7 +237,7 @@ $
 
 Therefore, we have an example where two processes have the same average time till some event, but one has significantly less variance. The same logic can be applied to the situation of observing underdispersion in the stationary distribution of our model. 
 
-However, when including factors such as reversible kinetics, transcriptional pausing, and torsional strain effects, we no longer get the guarentee that counts will be underdispersed(hence why we wanted to study this).
+However, when including factors such as reversible kinetics, transcriptional pausing, and torsional strain effects, we no longer get the guarentee that counts will be underdispersed (hence why we wanted to study this).
 
 #colbreak()
 <torsion>
